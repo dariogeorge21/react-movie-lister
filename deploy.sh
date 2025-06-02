@@ -19,26 +19,23 @@ fi
 
 echo "✅ Build completed successfully"
 
+# Clean up any existing git in dist
+rm -rf dist/.git
+
 # Add a .nojekyll file to tell GitHub Pages not to use Jekyll
 echo "📝 Adding .nojekyll file..."
 touch dist/.nojekyll
 
-# Initialize git in dist directory if not already initialized
+# Initialize git in dist directory
 cd dist
-
-if [ ! -d ".git" ]; then
-    echo "🔧 Initializing git in dist directory..."
-    git init
-    git remote add origin https://github.com/dariogeorge21/react-movie-lister.git
-fi
-
-# Add all files and commit
-echo "📤 Committing build files..."
+echo "🔧 Initializing git in dist directory..."
+git init
 git add -A
 git commit -m "Deploy React Movie Lister to GitHub Pages - $(date)"
 
-# Push to gh-pages branch (force push to overwrite)
+# Add remote and push to gh-pages branch (force push to overwrite)
 echo "🚀 Pushing to gh-pages branch..."
+git remote add origin https://github.com/dariogeorge21/react-movie-lister.git
 git push -f origin main:gh-pages
 
 cd ..
