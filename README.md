@@ -73,6 +73,20 @@ Preview the production build:
 npm run preview
 ```
 
+### 5. Deploying to GitHub Pages
+
+Deploy the application to GitHub Pages:
+```bash
+./deploy.sh
+```
+
+Or manually:
+```bash
+npm run deploy
+```
+
+The app will be available at: https://dariogeorge21.github.io/react-movie-lister/
+
 ## 🏗️ Project Structure
 
 ```

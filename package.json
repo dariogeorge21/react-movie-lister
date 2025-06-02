@@ -8,6 +8,8 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
+    "deploy": "npm run build && npm run deploy:gh-pages",
+    "deploy:gh-pages": "git add dist && git commit -m 'Add build files' && git subtree push --prefix dist origin gh-pages",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": ["react", "movie", "search", "omdb", "api"],
